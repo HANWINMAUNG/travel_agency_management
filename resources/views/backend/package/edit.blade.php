@@ -37,13 +37,32 @@
                                                 <label for="">Price</label>
                                                 <input type="number" name="price" class="form-control" value="{{ $package->price }}">
                                             </div>
+                                            <div class="from-group">
+                                                <label for="">Quantity</label>
+                                                <input type="number" name="quantity" class="form-control" value="{{ $package->quantity }}">
+                                                @error('quantity')
+                                                        <span class="" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                        </span>
+                                                @enderror 
+                                            </div>
                                             <div class="from-group mt-2">
                                                     <label for="">Image</label>
                                                     <input type="file" id="fileupload" name="image"  class="form-control">
+                                                    @error('image')
+                                                        <span class="" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror 
                                             </div>
                                             <div class="from-group mt-2">
                                                     <label for="">Cover Photo</label>
                                                     <input type="file" id="fileupload" name="cover_photo" class="form-control">
+                                                    @error('cover_photo')
+                                                        <span class="" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror 
                                             </div>
                                             <div class="from-group mt-2">
                                                     <label for="">Description</label>

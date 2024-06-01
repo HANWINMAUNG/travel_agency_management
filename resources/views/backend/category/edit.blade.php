@@ -20,6 +20,11 @@
                                             <div class="from-group mt-2">
                                                     <label for="">Title</label>
                                                     <input type="text"  name="title" class="form-control" value="{{ $category->title }}">
+													@error('title')
+                                                        <span class="" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror 
                                             </div>
                                             <div class="d-flex justify-content-center pt-4">
                                                 <button class="btn btn-secondary back-btn" style="margin-right:10px;">Cancel</button>

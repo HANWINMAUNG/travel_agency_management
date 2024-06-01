@@ -20,6 +20,7 @@
 													<th style="">Title</th>
 													<th style="">Slug</th>
 													<th style="">Price</th>
+													<th style="">Quantity</th>
 													<th style="">Category Name</th>
 													<th style="">Joined Date</th>
 													<th style="">Updated Date</th>
@@ -64,6 +65,8 @@
 				{data: 'slug', name: 'slug',class:'text-center'},
 
 				{data: 'price', name: 'price',class:'text-center'},
+
+				{data: 'quantity', name: 'quantity',class:'text-center'},
 
 				{data: 'category_id', name: 'category_id',class:'text-center'},
 

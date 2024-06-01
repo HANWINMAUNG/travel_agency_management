@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
+use App\Models\Package;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('frontend.welcome');
+        $packages = Package::latest()->get();
+        $citys = City::latest()->get();
+        return view('frontend.welcome',['packages' => $packages , 'citys' => $citys]);
     }
     public function about()
     {

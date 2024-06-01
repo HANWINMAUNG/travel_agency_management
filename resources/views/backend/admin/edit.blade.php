@@ -20,18 +20,38 @@
                                             <div class="from-group">
                                                 <label for="">Name</label>
                                                 <input type="text" name="name" value="{{ $admin_account->name }}" class="form-control">
+                                                @error('name')
+                                                        <span class="" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                        </span>
+                                                @enderror 
                                             </div>
                                             <div class="from-group mt-2">
                                                 <label for="">Email</label>
                                                 <input type="email" name="email"  value="{{ $admin_account->email }}" class="form-control">
+                                                @error('email')
+                                                        <span class="" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                        </span>
+                                                @enderror 
                                             </div>
                                             <div class="from-group mt-2">
                                                 <label for="">Phone</label>
                                                 <input type="text" name="phone" value="{{ $admin_account->phone }}" class="form-control">
+                                                @error('phone')
+                                                        <span class="" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                        </span>
+                                                @enderror 
                                             </div>
                                             <div class="from-group mt-2">
                                                 <label for="">Password</label>
                                                 <input type="password" value="" name="password" class="form-control">
+                                                @error('password')
+                                                        <span class="" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                        </span>
+                                                @enderror 
                                             </div>
                                             <div class="from-group mt-2">
                                                     <label for="">Gender</label>
@@ -44,6 +64,11 @@
                                                         <option >Male</option> 
                                                     @endif 
                                                     </select>
+                                                    @error('gender')
+                                                        <span class="" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror 
                                             </div>
                                             <div class="from-group mt-2">
                                                     <label for="">Profile</label>
@@ -55,6 +80,11 @@
                                                         <img src="{{asset('backend/assets/img/noimage.jpg')}}" alt="" style="width:200px;height:200px;padding-top:px;object-fit:contain;" class="pt-1">
                                                         @endif
                                                     </div>
+                                                    @error('profile')
+                                                        <span class="" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror 
                                             </div>
                                             <div class="from-group mt-2">
                                                     <label for="">Address</label>
