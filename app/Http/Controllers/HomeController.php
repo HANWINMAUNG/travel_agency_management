@@ -20,7 +20,9 @@ class HomeController extends Controller
     }
     public function package()
     {
-        return view('frontend.packages.package');
+        $packages = Package::get();
+
+        return view('frontend.packages.package', compact('packages'));
     }
     public function blog()
     {
