@@ -28,4 +28,9 @@ class Package extends Model
         $this->attributes['title'] = $value;
         $this->attributes['slug'] = strtolower(Str::slug($value));
     }
+
+    public function Booking()
+    {
+        return $this->hasMany(Booking::class, 'id');
+    }
 }

@@ -25,7 +25,7 @@
                 @foreach ($packages as $package)
                     <div class="col-md-4">
                         <div class="pac-col">
-                            <img src="" alt="">
+                            <img src="{{ $package->image }}" alt="">
                             <div class="packdetail">
                                 <a href="{{ route('booking.frontend.create', $package->slug) }}"><h4>{{ $package->title }}</h4></a>
                                 <div class="daydet">

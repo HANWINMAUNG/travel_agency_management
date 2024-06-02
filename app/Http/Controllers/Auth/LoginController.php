@@ -37,10 +37,10 @@ class LoginController extends Controller
         $user = User::where('phone', $request->phone)->first();
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('booking.frontend.create');
+            return redirect()->route('package');
         }
 
-        return redirect()->route('admin.login.index')->with('error', "Your Credentials doesn't match");
+        return redirect()->route('frontend.auth.index')->with('error', "Your Credentials doesn't match");
     }
 
     public function logout()

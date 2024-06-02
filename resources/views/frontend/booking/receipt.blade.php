@@ -6,7 +6,7 @@
     <div class="page-nav no-margin row">
         <div class="container">
             <div class="row">
-                <h2>Payment</h2>
+                <h2>Receipt</h2>
                 <ul>
                     <li> <a href="{{ route('home') }}"><i class="fas fa-home"></i> Home</a></li>
                     <li><i class="fas fa-angle-double-right"></i> Our Packages</li>
@@ -21,12 +21,12 @@
     <section class="top-packages container-fluid">
         <div class="container">
             <h4>
-                Payment State
+                Receipt For Travel
             </h4>
             <hr>
-            <a href="{{ route('booking.frontend.edit', [$booking_info->Package->slug, $booking_info->id]) }}" class="btn btn-info text-end mb-3">Edit Your Booking</a>
             <div class="mt-2">
                 <div class="mb-5">
+                    <p class="text-success font-weight-bold mb-4">{{ isset($payment) ? "Payment Done" : '' }}</p>
                     <div class="pb-2 d-flex justify-content-between">
                         <h6>Package Type</h6>
                         <span>{{ $booking_info->Package->title }}</span>
@@ -69,35 +69,6 @@
                         <span>{{ $total_amount }} MMK</span>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="container pt-2">
-            <h4>
-                Payment
-            </h4>
-            <hr>
-            <div class="mt-4">
-                <form method="POST" action="{{ route('booking.frontend.payment.store', [$booking_info->Package->slug, $booking_info->id]) }}">
-                    @csrf
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputState">Account Number</label>
-                            <input type="text" class="form-control" name="account_number" id="inputPassword4">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword4">Amount</label>
-                            <input type="text" class="form-control" value="{{ $total_amount }}" name="amount" id="inputPassword4" >
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <button class="btn btn-secondary w-100">Cancel</button>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <button type="submit" class="btn btn-primary w-100">Pay Now</button>
-                        </div>
-                    </div>    
-                </form>
             </div>
         </div>
     </section> 

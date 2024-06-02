@@ -44,5 +44,9 @@ Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/destinations', [HomeController::class, 'destination'])->name('destinations');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
-Route::get('/booking/{package:slug}/create', [BookingController::class, 'create'])->name('booking.frontend.create');
-Route::get('/booking/{package:slug}/payment', [BookingController::class, 'payment'])->name('booking.frontend.payment');
+Route::get('/booking/{package:slug}/create', [BookingController::class, 'create'])->name('booking.frontend.create')->middleware('auth');
+Route::post('/booking/{package:slug}/create', [BookingController::class, 'store'])->name('booking.frontend.store')->middleware('auth');
+Route::get('/booking/{package:slug}/edit/{id}', [BookingController::class, 'edit'])->name('booking.frontend.edit')->middleware('auth');
+Route::put('/booking/{package:slug}/edit/{id}', [BookingController::class, 'update'])->name('booking.frontend.update')->middleware('auth');
+Route::get('/booking/{package:slug}/payment/{id}', [BookingController::class, 'payment'])->name('booking.frontend.payment');
+Route::post('/booking/{package:slug}/payment/{id}', [BookingController::class, 'paymentStore'])->name('booking.frontend.payment.store');

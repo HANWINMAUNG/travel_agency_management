@@ -24,8 +24,9 @@
                 Primary Info
             </h4>
             <div class="mt-3">
-                <form method="POST" action="{{ route('booking.frontend.store', $package->slug) }}">
+                <form method="POST" action="{{ route('booking.frontend.update', [$package->slug, $booking_info->id]) }}">
                     @csrf
+                    @method('put')
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputState">Package</label>
@@ -38,40 +39,39 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Number Of People</label>
-                            <input type="number" name="number_of_person" class="form-control" id="inputPassword4" value="{{ $package->quantity }}" min="{{ $package->quantity }}">
+                            <input type="number" name="number_of_person" class="form-control" id="inputPassword4" value="{{ $booking_info->number_of_person }}" min="{{ $package->quantity }}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress">Note</label>
-                        <textarea class="form-control" name="note" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" name="note" id="exampleFormControlTextarea1" rows="3">{{ $booking_info->note }}</textarea>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputCity">Phone Number</label>
-                            <input type="text" name="phone_number" class="form-control" id="inputCity" value="{{ $user->phone }}" disabled>
+                            <input type="text" name="phone_number" class="form-control" id="inputCity" value="{{ $user['phone'] }}">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Email</label>
-                            <input type="email" name="email" class="form-control" id="inputEmail4" value="{{ $user->email }}" disabled>
+                            <input type="email" name="email" class="form-control" id="inputEmail4" value="{{ $user['email'] }}">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputCity">Date of travel</label>
-                            <input type="date" name="date_of_travel" class="form-control" id="inputCity">
+                            <input type="date" name="date_of_travel" class="form-control" id="inputCity" value="{{ $booking_info->date_of_travel }}">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputState">Payment Method</label>
                             <select id="inputState" class="form-control" name="payment_method">
-                                <option selected>Choose your payment method...</option>
-                                <option value="kpay">K Pay</option>
-                                <option value="aya-pay">AYA Pay</option>
-                                <option value="wave-pay">Wave Pay</option>
+                                <option value="kpay" {{ $booking_info->payment_method == 'kpay' ? 'selected' : ''}}>K Pay</option>
+                                <option value="aya-pay" {{ $booking_info->payment_method == 'aya-pay' ? 'selected' : ''}}>AYA Pay</option>
+                                <option value="wave-pay" {{ $booking_info->payment_method == 'wave-pay' ? 'selected' : ''}}>Wave Pay</option>
                             </select>
                         </div>
                     </div>
                     <button class="btn btn-secondary">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Book Now</button>
+                    <button type="submit" class="btn btn-primary">Edit Booking</button>
                 </form>
             </div>
         </div>

@@ -20,7 +20,7 @@ class HomeController extends Controller
     }
     public function package()
     {
-        $packages = Package::get();
+        $packages = Package::paginate(10);
 
         return view('frontend.packages.package', compact('packages'));
     }
