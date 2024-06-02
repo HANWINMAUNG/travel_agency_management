@@ -58,7 +58,7 @@
     
      <!--################### Slider Starts Here #######################--->
     
-    <div class="search-container contaienr-fluid">
+    <!-- <div class="search-container contaienr-fluid">
        <div class="container">
            <div class="row search-box">
                <div class="col-md-3">
@@ -85,7 +85,7 @@
                </div>
            </div>
        </div> 
-    </div>
+    </div> -->
     
     <!--################### Packages Starts Here #######################--->
     

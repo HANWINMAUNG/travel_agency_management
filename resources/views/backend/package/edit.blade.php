@@ -46,6 +46,15 @@
                                                         </span>
                                                 @enderror 
                                             </div>
+                                            <div class="from-group">
+                                                <label for="">Dates</label>
+                                                <input type="text" name="date" class="form-control" value="{{ $package->date }}"> 
+                                                @error('date')
+                                                        <span class="" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                        </span>
+                                                @enderror 
+                                            </div>
                                             <div class="from-group mt-2">
                                                     <label for="">Image</label>
                                                     <input type="file" id="fileupload" name="image"  class="form-control">

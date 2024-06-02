@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('frontend/assets/plugins/slider/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/assets/plugins/slider/css/owl.theme.default.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/style.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/swiper.min.css')}}" />
     @stack('header')
 </head>
     <body>
@@ -28,6 +29,7 @@
             <script src="{{asset('frontend/assets/plugins/scroll-fixed/jquery-scrolltofixed-min.js')}}"></script>
             <script src="{{asset('frontend/assets/plugins/slider/js/owl.carousel.min.js')}}"></script>
             <script src="{{asset('frontend/assets/js/script.js')}}"></script>
+            <script src="{{asset('frontend/assets/js/swiper.min.js')}}"></script>
             @stack('script')
 
     </body>

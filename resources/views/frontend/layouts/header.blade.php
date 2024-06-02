@@ -3,7 +3,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-4 d-none d-sm-block contacthd">
-                  <p><a href="">Japan</a> &nbsp;&nbsp; <span>/</span> &nbsp;&nbsp; <a href="">Spain</a><span>/</span> <a href="">Italy</a></p>
+                  <p><a href="">Myanmar</a></p>
                 </div>
                 <div class="col-sm-8">
 
@@ -23,7 +23,7 @@
                   </ul>
 
                   <ul class="email">
-                    <li><i class="fa fa-envelope"></i>smartcam@gamil.com</li>
+                    <li><i class="fa fa-envelope"></i>travelagency@gamil.com</li>
                   </ul>
                 </div>
               </div>

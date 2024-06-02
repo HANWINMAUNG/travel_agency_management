@@ -24,6 +24,11 @@ class HomeController extends Controller
 
         return view('frontend.packages.package', compact('packages'));
     }
+    public function packageDetail(Package $package)
+    {
+        $citys = $package->City;
+        return view('frontend.packages.package_detail', compact('package','citys'));
+    }
     public function blog()
     {
         return view('frontend.blog');

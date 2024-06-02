@@ -42,6 +42,14 @@
                                                 <p>-{{ $package->price }} MMK</p>
                                             </div>
                                             <div>
+                                                <h5>Quantity</h5>
+                                                <p>-{{ $package->quantity }}</p>
+                                            </div>
+                                            <div>
+                                                <h5>Date</h5>
+                                                <p>-{{ $package->date }}</p>
+                                            </div>
+                                            <div>
                                                 <h5>Category</h5>
                                                 <p>-{{ $package_category }}</p>
                                             </div>
