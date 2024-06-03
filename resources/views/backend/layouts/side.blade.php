@@ -44,6 +44,11 @@
                         </a>
 					</li>
 					
+					<li class="sidebar-item @yield('city')">
+						<a class="sidebar-link" href="{{ route('admin.booking.index') }}">
+                            <i class="align-middle" data-feather="map"></i> <span class="align-middle">Booking</span>
+                        </a>
+					</li>
 				</ul>
 			</div>
 </nav>

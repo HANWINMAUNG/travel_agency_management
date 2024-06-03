@@ -21,7 +21,7 @@
     <section class="top-packages container-fluid">
         <div class="container">
             <div class="mb-5">
-                <h4>Filter with Category</h4>
+                <h6>Filter with Category</h6>
                 <select id="categorySelect" class="form-control" name="package_id">
                     <option selected>Category</option>
                     @foreach ($categories as $key => $category)

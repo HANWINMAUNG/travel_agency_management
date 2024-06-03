@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Backend\PackageController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\BookingController as BackBook;
 
 //user
 // Auth::routes();
@@ -29,6 +30,9 @@ Route::prefix('admin')->middleware('auth:admin')->group(function(){
     Route::resource('category', CategoryController::class);
     Route::resource('package', PackageController::class);
     Route::resource('city', CityController::class);
+    Route::get('booking', [BackBook::class, 'index'])->name('admin.booking.index');
+//    Route::get('booking/{package:slug}/info/{id}', BookingController::class)->name('admin.booking.index');
+//    Route::get('booking', BookingController::class)->name('admin.booking.index');
 });
 
 Route::get('/login', [LoginController::class, 'index'])->name('frontend.auth.index');

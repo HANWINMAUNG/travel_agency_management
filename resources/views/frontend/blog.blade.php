@@ -19,7 +19,7 @@
     <!--  ************************* Blog Starts Here ************************** -->
     <div class="blog">
         <div class="container">
-            
+            <a href="">Create Review</a>
             <div class="row blog-row">
                 <div class="col-md-6 col-sm-12">
                     <div class="blog-singe no-margin row">
