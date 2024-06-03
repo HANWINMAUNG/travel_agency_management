@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -37,7 +38,8 @@ class LoginController extends Controller
         $user = User::where('phone', $request->phone)->first();
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('package');
+            $slug = Session::get('package_slug');
+            return redirect()->route('booking.frontend.create', $slug);
         }
 
         return redirect()->route('frontend.auth.index')->with('error', "Your Credentials doesn't match");

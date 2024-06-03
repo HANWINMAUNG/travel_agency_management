@@ -48,11 +48,11 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputCity">Phone Number</label>
-                            <input type="text" name="phone_number" class="form-control" id="inputCity" value="{{ $user->phone }}" disabled>
+                            <input type="text" name="phone_number" class="form-control" id="inputCity" value="{{ $user->phone }}">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Email</label>
-                            <input type="email" name="email" class="form-control" id="inputEmail4" value="{{ $user->email }}" disabled>
+                            <input type="email" name="email" class="form-control" id="inputEmail4" value="{{ $user->email }}">
                         </div>
                     </div>
                     <div class="form-row">
