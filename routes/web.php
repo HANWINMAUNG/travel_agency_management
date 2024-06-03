@@ -39,7 +39,7 @@ Route::post('/register', [RegisterController::class, 'register'])->name('fronten
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/packages', [HomeController::class, 'package'])->name('package');
-Route::get('/packages/{slug}/detail', [HomeController::class, 'packageDetail'])->name('package.detail');
+Route::get('/packages/{package:slug}/detail', [HomeController::class, 'packageDetail'])->name('package.detail');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/destinations', [HomeController::class, 'destination'])->name('destinations');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');

@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\Package;
+use App\Models\Category;
+use App\Models\CategoryPackage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -18,16 +21,25 @@ class HomeController extends Controller
     {
         return view('frontend.about');
     }
-    public function package()
+    public function package(Request $request)
     {
-        $packages = Package::paginate(10);
+        if(isset($request->category)) {
+            $category_id = Category::where('slug', $request->category)->value('id');
 
-        return view('frontend.packages.package', compact('packages'));
+            $package_ids = CategoryPackage::where('category_id', $category_id)->pluck('package_id')->toArray();
+            $packages = Package::whereIn('id', $package_ids)->paginate(9);
+        }else{
+            $packages = Package::paginate(9);
+        }
+        $categories = Category::get();
+
+        return view('frontend.packages.package', compact('packages', 'categories'));
     }
     public function packageDetail(Package $package)
     {
-        $citys = $package->City;
-        return view('frontend.packages.package_detail', compact('package','citys'));
+        Session::put('package_slug', $package->slug);
+        $cities = $package->City;
+        return view('frontend.packages.package_detail', compact('package','cities'));
     }
     public function blog()
     {
