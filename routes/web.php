@@ -39,6 +39,8 @@ Route::get('/login', [LoginController::class, 'index'])->name('frontend.auth.ind
 Route::post('/login', [LoginController::class, 'auth'])->name('frontend.auth');
 Route::get('/register', [RegisterController::class, 'index'])->name('frontend.register.index');
 Route::post('/register', [RegisterController::class, 'register'])->name('frontend.register');
+Route::get('/forget-password', [LoginController::class, 'forgetPassword'])->name('frontend.forget-password.index');
+Route::get('/change-password', [LoginController::class, 'changePassword'])->name('frontend.change-password.index');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');

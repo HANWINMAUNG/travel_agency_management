@@ -51,4 +51,14 @@ class LoginController extends Controller
 
         return redirect()->route('frontend.auth.index')->with('success', 'Successfully Loggout');
     }
+
+    public function forgetPassword(Request $request)
+    {
+        return view('Auth.passwords.email');
+    }
+
+    public function changePassword(Request $request)
+    {
+        dd($request->all());
+    }
 }

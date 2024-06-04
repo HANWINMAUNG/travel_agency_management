@@ -1,15 +1,15 @@
-@extends('frontend.layouts.app_plain')
+@extends('frontend.layouts.app')
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center align-items-center" style="height:100vh;">
-        <div class="col-md-8">
+    <div class="row justify-content-center align-items-center mb-3">
+        <div class="col-md-8" style="padding-top: 160px">
             <div class="card p-4 auth-form">
                 <h3 class="text-center">Register</h3>
                 <p class="text-center text-info">Please fill to register form</p>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('frontend.register') }}">
                         @csrf
                         <div class="from-group mb-3">
                             <label for="">Name</label>
@@ -58,7 +58,7 @@
                         </div>
                         <button class="btn btn-theme btn-block my-3 form-control">Register</button>
                         <div class="d-flex justify-content-between">
-                            <a href="{{ route('login') }}">Already have an account?</a>
+                            <a href="{{ route('frontend.auth.index') }}">Already have an account?</a>
                         </div>
                     </form>
                 </div>

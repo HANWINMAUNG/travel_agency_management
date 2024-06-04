@@ -1,5 +1,5 @@
-@extends('layouts.app')
-
+@extends('frontend.layouts.app')
+@section('title' ,'Login')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <form method="POST" action="{{ route('') }}">
                         @csrf
 
                         <div class="row mb-3">
@@ -34,7 +34,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
+                                    {{ __('Find your account) }}
                                 </button>
                             </div>
                         </div>
