@@ -32,7 +32,7 @@
                         <button class="btn btn-theme btn-block my-3 form-control">Login</button>
                         <div class="d-flex justify-content-center">
                             <span>No Account?</span>
-                            <a href="" class="ml-2 text-primary">Register Now</a>
+                            <a href="{{ route('frontend.register.index') }}" class="ml-2 text-primary">Register Now</a>
                             @if (Route::has('password.request'))
                                     <a class="" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
