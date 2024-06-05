@@ -49,27 +49,26 @@
 
 			serverSide: true,
 
-			ajax: "{{ route('admin-account.index') }}",
+			ajax: "{{ route('admin.booking.index') }}",
 
 			order: [
 				[6,'desc']
 			],
 
 			columns: [
-
 				{data: 'id', name: 'id',class:'text-center'},
 
-				{data: 'name', name: 'name',class:'text-center'},
+				{data: 'package_name', name: 'package_name',class:'text-center'},
 
-				{data: 'email', name: 'email',class:'text-center'},
+				{data: 'number_of_person', name: 'number_of_person',class:'text-center'},
 
-				{data: 'phone', name: 'phone',class:'text-center'},
+				{data: 'user_info', name: 'user_info',class:'text-center'},
 
-				{data: 'gender', name: 'gender',class:'text-center'},
+				{data: 'date_of_travel', name: 'date_of_travel',class:'text-center',searchable: false,sortable:false},
 
-				{data: 'created_at', name: 'created_at',class:'text-center',searchable: false,sortable:false},
+				{data: 'payment_method', name: 'payment_method',class:'text-center'},
 
-				{data: 'updated_at', name: 'updated_at',class:'text-center',searchable: false,sortable:false},
+				{data: 'booking_date', name: 'booking_date',class:'text-center',searchable: false,sortable:false},
 
 				{data: 'action', name: 'action',class:'text-center',searchable: false,sortable:false},
 				

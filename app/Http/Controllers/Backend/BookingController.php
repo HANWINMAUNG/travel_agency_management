@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
@@ -25,15 +26,21 @@ class BookingController extends Controller
 
     public function dataTable()
     {
-        $query = User::query();
+        $query = Booking::with('Package')->query();
         return DataTables::of($query)
+            ->addColumn('package_name', function ($data) {
+                return $data->Package->name;
+            })
+            ->addColumn('action', function ($booking) {
+                return view('backend.action.admin_action', ['booking' => $booking]);
+            })
             ->addColumn('date_of_travel', function ($data) {
-                return date('d-M-Y H:i:s', strtotime($data->created_at));
+                return Carbon::parse($data->date_of_travel)->format('d-M-Y H:i:s');
             })
             ->addColumn('booking_date', function ($data) {
                 return Carbon::parse($data->updated_at)->format('d-M-Y H:i:s');
             })
-            ->rawColumns(['action'])
+            ->rawColumns(['package_name', 'booking_date', 'date_of_travel', 'action'])
             ->make(true);
     }
 
