@@ -15,14 +15,14 @@
                 <div class="carousel-item ">
                     <img class="d-block w-100" src="{{asset('frontend/assets/images/slider/slid_1.jpg')}}" alt="First slide">
                     <div class="carousel-caption fvgb d-none d-md-block">
-                        <h5 class="animated bounceInDown">Create an Awesome Website Today </h5>
+                        <h5 class="animated bounceInDown">Welcome Our Travel Agency </h5>
                         <p class="animated fadeInLeft">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, <br>
                             aliquet sit amet elementum vel, vehicula eget eros. Vivamus arcu metus, mattis <br>
                             sed sagittis at, sagittis quis neque. Praesent.</p>
 
                         <div class="row vbh">
 
-                            <div class="btn btn-primary animated bounceInUp"> Apply Online </div>
+                            <!-- <div class="btn btn-primary animated bounceInUp"> Apply Online </div> -->
                         </div>
                     </div>
                 </div>
@@ -30,14 +30,14 @@
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="{{asset('frontend/assets/images/slider/slid_2.jpg')}}" alt="Third slide">
                     <div class="carousel-caption vdg-cur d-none d-md-block">
-                        <h5 class="animated bounceInDown">Best Free Educational Template</h5>
+                        <h5 class="animated bounceInDown">Welcome Our Travel Agency</h5>
                         <p class="animated bounceInLeft">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, <br>
                             aliquet sit amet elementum vel, vehicula eget eros. Vivamus arcu metus, mattis <br>
                             sed sagittis at, sagittis quis neque. Praesent.</p>
 
                         <div class="row vbh">
 
-                            <div class="btn btn-primary animated bounceInUp"> Apply Online </div>
+                            <!-- <div class="btn btn-primary animated bounceInUp"> Apply Online </div> -->
                         </div>
                     </div>
                 </div>
@@ -56,39 +56,6 @@
 
     </div>
     
-     <!--################### Slider Starts Here #######################--->
-    
-    <!-- <div class="search-container contaienr-fluid">
-       <div class="container">
-           <div class="row search-box">
-               <div class="col-md-3">
-                   <select name="" id="" class="form-control">
-                       <option value="">Select Activity</option>
-                       <option value="">City Tours</option>
-                       <option value="">Relaxation Tours</option>
-                       <option value="">Cultral Tours</option>
-                   </select>
-               </div>
-                <div class="col-md-3">
-                   <select name="" id="" class="form-control">
-                       <option value="">Select Activity</option>
-                       <option value="">City Tours</option>
-                       <option value="">Relaxation Tours</option>
-                       <option value="">Cultral Tours</option>
-                   </select>
-               </div>
-                <div class="col-md-3">
-                   <input placeholder="Select Date" type="text" class="form-control">
-               </div>
-                <div class="col-md-3">
-                   <button class="btn w-100 btn-primary">Search Package</button>
-               </div>
-           </div>
-       </div> 
-    </div> -->
-    
-    <!--################### Packages Starts Here #######################--->
-    
     <section class="top-packages container-fluid">
         <div class="container">
             <div class="session-title row">
@@ -96,132 +63,34 @@
                 <p>There are many variations of passages of Lorem Ipsum available form</p>
             </div>
             <div class="pack-row row">
-                <div class="col-md-4">
-                    <div class="pac-col">
-                        <img src="{{asset('frontend/assets/images/packages/pack1.jpg')}}" alt="">
-                        <div class="packdetail">
-                            <h4>Tokyo - 4 Days in Korea, Entertica</h4>
-                            <div class="daydet">
-                                <span><i class="far fa-clock"></i> 4 Days 3 Nights</span>
-                                <b>$1450</b>
-                            </div>
-                            <div class="eview-row row no-margin">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="pac-col">
-                        <img src="assets/images/packages/pack2.jpg" alt="">
-                        <div class="packdetail">
-                            <h4>Tokyo - 4 Days in Korea, Entertica</h4>
-                            <div class="daydet">
-                                <span><i class="far fa-clock"></i> 4 Days 3 Nights</span>
-                                <b>$1450</b>
-                            </div>
-                            <div class="eview-row row no-margin">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                </ul>
+                @foreach($packages->take(6) as $package)
+                    <div class="col-md-4">
+                        <div class="pac-col">
+                        @if(!$package->image == '')
+                            <img src="{{asset('images/' . $package->image )}}" alt="" style="width:360px;height:288px;padding:px;object-fit:contain;" class=" w-full">
+                        @else
+                            <img src="{{asset('backend/assets/img/noimage.jpg')}}" alt="" style="width:360px;height:288px;padding:px;object-fit:contain;" class="">
+                        @endif
+                            
+                            <div class="packdetail">
+                                <h4>{{ Illuminate\Support\Str::limit($package->title, 10, ' ...') }}</h4>
+                                <div class="daydet">
+                                    <span><i class="far fa-clock"></i>{{ $package->date }}</span>
+                                    <b>{{ $package->price }} MMK</b>
+                                </div>
+                                <!-- <div class="eview-row row no-margin">
+                                    <ul>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                    </ul>
+                                </div> -->
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="pac-col">
-                        <img src="assets/images/packages/pack3.jpg" alt="">
-                        <div class="packdetail">
-                            <h4>Tokyo - 4 Days in Korea, Entertica</h4>
-                            <div class="daydet">
-                                <span><i class="far fa-clock"></i> 4 Days 3 Nights</span>
-                                <b>$1450</b>
-                            </div>
-                            <div class="eview-row row no-margin">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="pac-col">
-                        <img src="assets/images/packages/pack4.jpg" alt="">
-                        <div class="packdetail">
-                            <h4>Tokyo - 4 Days in Korea, Entertica</h4>
-                            <div class="daydet">
-                                <span><i class="far fa-clock"></i> 4 Days 3 Nights</span>
-                                <b>$1450</b>
-                            </div>
-                            <div class="eview-row row no-margin">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="pac-col">
-                        <img src="assets/images/packages/pack5.jpg" alt="">
-                        <div class="packdetail">
-                            <h4>Tokyo - 4 Days in Korea, Entertica</h4>
-                            <div class="daydet">
-                                <span><i class="far fa-clock"></i> 4 Days 3 Nights</span>
-                                <b>$1450</b>
-                            </div>
-                            <div class="eview-row row no-margin">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="pac-col">
-                        <img src="assets/images/packages/pack6.jpg" alt="">
-                        <div class="packdetail">
-                            <h4>Tokyo - 4 Days in Korea, Entertica</h4>
-                            <div class="daydet">
-                                <span><i class="far fa-clock"></i> 4 Days 3 Nights</span>
-                                <b>$1450</b>
-                            </div>
-                            <div class="eview-row row no-margin">
-                                <ul>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                    <li><i class="fas fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -235,7 +104,7 @@
                     <div class="col-md-10 natur-col mx-auto">
                         <h2>Up to 40% Discount on Selected Packages</h2>
                         <h4 class="pt-3">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form  If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text</h4>
-                        <button class="btn btn-light">Book Now</button>
+                        <!-- <button class="btn btn-light">Book Now</button> -->
                     </div>
                 </div>
             </div>
@@ -320,73 +189,20 @@
                 <p>Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit hella wolf moon beard words.</p>
             </div>
             <div class="destination-row row">
-                <div class="col-md-3 descol">
-                   <div class="destcol">
-                       <img src="assets/images/destination/d1.jpg" alt="">
-                       <div class="layycover">
-                           <h4>Brazil <span class="badge badge-info">5 Places</span></h4>
-                       </div>
-                   </div>
-                </div>
-                <div class="col-md-3 descol">
-                   <div class="destcol">
-                       <img src="assets/images/destination/d2.jpg" alt="">
-                       <div class="layycover">
-                           <h4>Malaysia <span class="badge badge-info">5 Places</span></h4>
-                       </div>
-                   </div>
-                </div>
-                
-                <div class="col-md-3 descol">
-                   <div class="destcol">
-                       <img src="assets/images/destination/d3.jpg" alt="">
-                       <div class="layycover">
-                           <h4>Sri Lanka <span class="badge badge-info">5 Places</span></h4>
-                       </div>
-                   </div>
-                </div>
-                
-                <div class="col-md-3 descol">
-                   <div class="destcol">
-                       <img src="assets/images/destination/d4.jpg" alt="">
-                       <div class="layycover">
-                           <h4>Canada <span class="badge badge-info">5 Places</span></h4>
-                       </div>
-                   </div>
-                </div>
-                
-                <div class="col-md-3 descol">
-                   <div class="destcol">
-                       <img src="assets/images/destination/d3.jpg" alt="">
-                       <div class="layycover">
-                           <h4>Vietnam <span class="badge badge-info">5 Places</span></h4>
-                       </div>
-                   </div>
-                </div>
-                <div class="col-md-3 descol">
-                   <div class="destcol">
-                       <img src="assets/images/destination/d1.jpg" alt="">
-                       <div class="layycover">
-                           <h4>Thailand <span class="badge badge-info">5 Places</span></h4>
-                       </div>
-                   </div>
-                </div>
-                <div class="col-md-3 descol">
-                   <div class="destcol">
-                       <img src="assets/images/destination/d3.jpg" alt="">
-                       <div class="layycover">
-                           <h4>Thailand <span class="badge badge-info">5 Places</span></h4>
-                       </div>
-                   </div>
-                </div>
-                <div class="col-md-3 descol">
-                   <div class="destcol">
-                       <img src="assets/images/destination/d4.jpg" alt="">
-                       <div class="layycover">
-                           <h4>Thailand <span class="badge badge-info">5 Places</span></h4>
-                       </div>
-                   </div>
-                </div>
+                @foreach($citys->take(8) as $city)
+                    <div class="col-md-3 descol">
+                    <div class="destcol">
+                        @if(!$city->cover == '')
+                            <img src="{{asset('images/' . $city->cover )}}" alt="" style="width:262px;height:187px;padding:px;object-fit:contain;" class=" w-full">
+                        @else
+                            <img src="{{asset('backend/assets/img/noimage.jpg')}}" alt="" style="width:262px;height:187px;padding:px;object-fit:contain;" class="">
+                        @endif
+                        <div class="layycover">
+                            <h4>{{ Illuminate\Support\Str::limit($city->title, 10, ' ...') }} <span class="badge badge-info"></span></h4>
+                        </div>
+                    </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
